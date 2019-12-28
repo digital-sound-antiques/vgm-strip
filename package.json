@@ -26,7 +26,7 @@
   "dependencies": {
     "command-line-args": "^5.1.1",
     "command-line-usage": "^6.1.0",
-    "vgm-parser": "^0.6.1"
+    "vgm-parser": "^0.6.2"
   },
   "devDependencies": {
     "@types/command-line-usage": "^5.0.1",
