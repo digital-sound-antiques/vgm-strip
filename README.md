@@ -1,4 +1,7 @@
 # vgm-strip
+
+[![npm version](https://badge.fury.io/js/vgm-strip.svg)](https://badge.fury.io/js/vgm-strip)
+
 vgm-strip is a small tools to strip commands for specified chip(s) from VGM file.
 
 # Install
