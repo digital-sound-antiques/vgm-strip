@@ -1,6 +1,6 @@
 {
   "name": "vgm-strip",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Strip specified chip commands from VGM file",
   "main": "dist/index.js",
   "bin": {

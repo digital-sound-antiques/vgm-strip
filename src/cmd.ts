@@ -105,7 +105,7 @@ function main(argv: string[]) {
   const chips = options.chip;
 
   if (process.platform === "win32") {
-    if (options.file == null) {
+    if (options.input == null) {
       console.error("Please specify input file. Standard input can not be used on Windows.");
       return;
     }
