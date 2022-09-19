@@ -71,7 +71,12 @@ export default function stripVGM(input: VGM, delChips: Array<string>): VGM {
       ds.push(cmd);
     }
     index += cmd.size;
-    cmd = parseVGMCommand(data, index);
+    try {
+      cmd = parseVGMCommand(data, index);
+    } catch(e) {
+      console.error(`${e}`);
+      cmd = new VGMEndCommand();
+    }
   }
 
   ds.push(cmd);
