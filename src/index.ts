@@ -74,6 +74,8 @@ export default function stripVGM(input: VGM, delChips: Array<string>): VGM {
     cmd = parseVGMCommand(data, index);
   }
 
+  ds.push(cmd);
+
   const res = input.clone();
   for (const chip of delChips) {
     (res.chips as any)[chip] = undefined;
