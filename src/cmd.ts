@@ -30,6 +30,11 @@ const optionDefinitions = [
     type: String
   },
   {
+    name: "no-gd3",    
+    description: "Remove GD3 Tags.",
+    type: Boolean,
+  },
+  {
     name: "version",
     alias: "v",
     description: "Show version.",
@@ -71,7 +76,8 @@ ymf271, ymz280b, rf5c164, pwm, ay8910, gameBoyDmg,
 nesApu, multiPcm, upd7759, okim6258, okim6295,
 k051649, k054539, huc6280, c140, k053260, pokey,
 qsound, scsp, wonderSwan, vsu, saa1099, es5503,
-es5506, x1_010, c352, ga20`
+es5506, x1_010, c352, ga20,
+none`
     ]
   }
 ];
@@ -97,6 +103,12 @@ function main(argv: string[]) {
     console.info(json.version);
     return;
   }
+
+  if (!options.chip) {
+    console.error('At least one -c option is required.');
+    return;    
+  }
+
   if (options.help || !options.chip) {
     console.log(commandLineUsage(sections));
     return;
@@ -117,11 +129,12 @@ function main(argv: string[]) {
 
   const input = options.input || "/dev/stdin";
   const output = options.output;
+  const noGD3 = options["no-gd3"];
 
   const buf = loadVgmOrVgz(input);
   const vgm = VGM.parse(toArrayBuffer(buf));
 
-  const res = Buffer.from(stripVGM(vgm, chips).build());
+  const res = Buffer.from(stripVGM(vgm, chips, noGD3).build());
   if (output) {
     fs.writeFileSync(output, res);
   } else {

@@ -19,7 +19,8 @@ npm install -g vgm-strip
   -c, --chip chip     Specify the chip type to be removed from VGM stream. To remove multiple       
                       chips, just use this option repeatedly.                                       
   -i, --input file    Input VGM file. Standard input will be used if not specified.                 
-  -o, --output file   Output VGM file. Standard output will be used if not speicified.              
+  -o, --output file   Output VGM file. Standard output will be used if not speicified. 
+  --no-gd3            Remove GD3 Tags.             
   -v, --version       Show version.                                                                 
   -h, --help          Show this help.                                                               
 ```

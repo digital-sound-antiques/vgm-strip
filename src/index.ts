@@ -9,7 +9,7 @@ import {
   VGMSeekPCMCommand
 } from "vgm-parser";
 
-export default function stripVGM(input: VGM, delChips: Array<string>): VGM {
+export default function stripVGM(input: VGM, delChips: Array<string>, noGD3: boolean): VGM {
   let index = 0;
   const data = new Uint8Array(input.data);
   const ds = new VGMDataStream();
@@ -84,6 +84,9 @@ export default function stripVGM(input: VGM, delChips: Array<string>): VGM {
   const res = input.clone();
   for (const chip of delChips) {
     (res.chips as any)[chip] = undefined;
+  }
+  if (noGD3) {
+    res.gd3tag = undefined;
   }
   res.setDataStream(ds);
   return res;
